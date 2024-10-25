@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+<div class="card">
+<div class="card-header">
+<h3>Update Student</h3>
+</div>
+
+<div class="card-body">
+<div class="col-md-10">
+
+<form th:action="@{/students/update/{id}(id=${student.id})}" th:object=${student} method="post">
+
+<div class="row">
+
+<div class="form-group col-md-8">
+<label for="name" class="col-form-label">Name</label>
+<input type="text" th:field="*{name}" class="form-control" id="name" placeholder="EnterStudentName">
+<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+</div>
+
+<div class="form-group col-md-8">
+<label for="email" class="col-form-label">Email</label>
+<input type="text" th:field="*{email}" class="form-control" id="email" placeholder="EnterStudentEmail">
+<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+</div>
+
+<div class="form-group col-md-8">
+<label for="phoneno" class="col-form-label">Phone Number</label>
+<input type="text" th:field="*{phoneno}" class="form-control" id="phoneno" placeholder="EnterStudentPhoneNo">
+<span th:if="${#fields.hasErrors('phoneno')}" th:errors="*{phoneno}" class="text-danger"></span>
+</div>
+
+<div class="col-md-6">
+<input type="submit" class="btn btn-primary" value="Update Students">
+</div>
+
+
+
+</div>
+</form>
+</div>
+
+</div>
+</div>
+
+
+</div>
+</body>
+</html>
